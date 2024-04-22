@@ -15,6 +15,6 @@ let
     ]);
 
 in mkShell rec {
-  ANDORID_SDK_ROOT = "${android-sdk}/libexec/android-sdk";
+  ANDROID_SDK_ROOT = "${android-sdk}/libexec/android-sdk";
   buildInputs = [ android-sdk ];
 }
