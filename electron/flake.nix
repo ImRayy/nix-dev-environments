@@ -14,7 +14,7 @@
     flake-utils.lib.eachDefaultSystem (
       system: let
         pkgs = import nixpkgs {inherit system;};
-        fhs = pkgs.buildFHSUserEnv {
+        fhs = pkgs.buildFHSEnv {
           name = "electron-fhs-shell";
           targetPkgs = pkgs:
             (with pkgs; [
@@ -32,6 +32,7 @@
               gtk4
               libdrm
               libxkbcommon
+              libgbm
               mesa
               nspr
               nss
@@ -39,6 +40,9 @@
               nodejs_20
               pango
               udev
+              libxcrypt-legacy
+              libGL
+              zlib
             ])
             ++ (with pkgs.xorg; [
               libXcomposite
@@ -50,8 +54,6 @@
               xcbutil
               libxcb
             ]);
-
-          # runScript = "pnpm dev";
         };
       in {
         devShells.default = fhs.env;
