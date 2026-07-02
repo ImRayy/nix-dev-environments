@@ -43,6 +43,8 @@
               libxcrypt-legacy
               libGL
               zlib
+              vulkan-headers
+              vulkan-loader
             ])
             ++ (with pkgs.xorg; [
               libXcomposite
